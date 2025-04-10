@@ -1,0 +1,28 @@
+[config]
+schemaVersion = "0.0.1"
+
+[package]
+namespace = "Kesomannen"
+name = "FastStartup"
+versionNumber = "0.1.0"
+description = "Skips the main menu, lobby screen, and level load animaton."
+websiteUrl = "https://thunderstore.io"
+
+[package.dependencies]
+Hamunii-AutoHookGenPatcher = "1.0.6"
+
+[build]
+icon = "./icon@0.25x.png"
+readme = "./README.md"
+outdir = "./build"
+
+[[build.copy]]
+source = "./bin/Release/netstandard2.1/FastStartup.dll"
+target = ""
+
+[publish]
+repository = "https://thunderstore.io"
+communities = ["repo"]
+
+[publish.categories]
+riskofrain2 = ["Tools"]
