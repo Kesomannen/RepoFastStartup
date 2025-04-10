@@ -9,6 +9,7 @@ description = "Skip the menus and get right into the action!"
 websiteUrl = "https://github.com/Kesomannen/RepoFastStartup"
 
 [package.dependencies]
+BepInEx-BepInExPack = "5.4.2100"
 Hamunii-AutoHookGenPatcher = "1.0.6"
 
 [build]

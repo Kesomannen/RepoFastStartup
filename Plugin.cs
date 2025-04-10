@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using System;
@@ -10,18 +11,22 @@ namespace FastStartup;
 [BepInDependency("REPOLib", BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BaseUnityPlugin {
     static ConfigFile _config;
-    static ManualLogSource _log;
+    internal static ManualLogSource Log;
     
     void Awake() {
         _config = Config;
-        _log = Logger;
-        
-        On.RunManager.Awake += (orig, self) =>
-        {
-            orig(self);
-            self.StartCoroutine(WaitOneFrame(SkipMainMenu));
-        };
+        Log = Logger;
 
+        if (Chainloader.PluginInfos.ContainsKey("REPOLib")) {
+            RepoLibCompat.Init(this);
+        } else {
+            On.RunManager.Awake += (orig, self) =>
+            {
+                orig(self);
+                self.StartCoroutine(WaitOneFrame(SkipMainMenu));
+            };
+        }
+        
         On.LoadingUI.LevelAnimationStart += (_, self) =>
         {
             self.levelAnimationStarted = true;
@@ -29,7 +34,7 @@ public class Plugin : BaseUnityPlugin {
         };
     }
 
-    void SkipMainMenu() {
+    public void SkipMainMenu() {
         Logger.LogInfo("Skipping main menu.");
         RunManager.instance.ResetProgress();
 
@@ -56,7 +61,7 @@ public class Plugin : BaseUnityPlugin {
         Logger.LogDebug($"saveFileName = {saveFileName}");
 
         if (saveMode == SaveMode.CreateOnStartup) {
-            Logger.LogInfo("Creating new save file.");
+            Logger.LogDebug("Creating new save file.");
             SemiFunc.SaveFileCreate();
         } else {
             var exists = files.Contains(saveFileName);
@@ -64,13 +69,13 @@ public class Plugin : BaseUnityPlugin {
             
             if (saveMode == SaveMode.ResetOnStartup) {
                 if (exists) {
-                    Logger.LogInfo("Deleting existing save file.");
+                    Logger.LogDebug("Deleting existing save file.");
                     SemiFunc.SaveFileDelete(saveFileName);
                 } else {
-                    Logger.LogInfo($"Creating new save file.");
+                    Logger.LogDebug($"Creating new save file.");
                 }
             } else if (!exists) {
-                _log.LogWarning($"Could not find save file {saveFileName}!");
+                Log.LogWarning($"Could not find save file {saveFileName}!");
             }
             
             StatsManager.instance.saveFileCurrent = saveFileName;

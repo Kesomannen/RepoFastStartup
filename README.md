@@ -4,6 +4,8 @@ Developer tool to skip the main menu, lobby screen and level load animation.
 
 ![Startup](https://github.com/Kesomannen/RepoFastStartup/blob/master/assets/start.gif?raw=true)
 
+If REPOLib is installed, this mod waits for all asset bundles to load before skipping.
+
 ## Config
 
 | Name             | Type   | Default                 | Description                                                                                                                                                                                                    |
