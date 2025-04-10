@@ -40,10 +40,9 @@ public class Plugin : BaseUnityPlugin {
             "General", 
             "SaveMode", 
             SaveMode.ResetOnStartup,
-            "How to handle saves. " +
-            "ResetOnStartup: Creates a new save and resets it on each startup." +
-            "CreateOnStartup: Creates a brand new save on each startup." +
-            "Reuse: Uses an existing save on each startup, without resetting."
+            "ResetOnStartup: Create a new save and resets it on each startup." +
+            "CreateOnStartup: Create a brand new save on each startup." +
+            "Reuse: Use an existing save on each startup, without resetting."
         ).Value;
         
         var saveFileName = _config.Bind(

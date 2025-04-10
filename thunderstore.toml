@@ -5,14 +5,14 @@ schemaVersion = "0.0.1"
 namespace = "Kesomannen"
 name = "FastStartup"
 versionNumber = "0.1.0"
-description = "Skip the menus and get right to the action!"
+description = "Skip the menus and get right into the action!"
 websiteUrl = "https://github.com/Kesomannen/RepoFastStartup"
 
 [package.dependencies]
 Hamunii-AutoHookGenPatcher = "1.0.6"
 
 [build]
-icon = "./icon.png"
+icon = "./assets/icon.png"
 readme = "./README.md"
 outdir = "./build"
 
