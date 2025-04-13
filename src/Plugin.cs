@@ -76,7 +76,7 @@ public class Plugin : BaseUnityPlugin {
             "General", 
             "SaveFileName",
             "REPO_FASTSTARTUP_SAVE",
-            $"Which save file to use. Not applicable for the Reuse save mode."
+            $"The name of the save file to use."
         ).Value;
         
         _overrideLevel = Config.Bind(
