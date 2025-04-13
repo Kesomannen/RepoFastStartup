@@ -3,7 +3,7 @@ using BepInEx.Logging;
 
 namespace FastStartup;
 
-[BepInPlugin("com.kesomannen.FastStartup", "FastStartup", "0.1.0")]
+[BepInPlugin("com.kesomannen.FastStartup", "FastStartup", "0.2.0")]
 [BepInDependency("REPOLib", BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BaseUnityPlugin {
     static bool _overrideLevelTrigger;

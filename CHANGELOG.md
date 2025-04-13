@@ -2,10 +2,8 @@
 
 ## 0.2.0
 
-- Added three config options *(more info in the readme)*:
-  - `Multiplayer`
-  - `OverrideLevel`
-  - `LevelName`
+- Added option to start in singleplayer.
+- Added option to override the starting level.
 
 ## 0.1.0
 

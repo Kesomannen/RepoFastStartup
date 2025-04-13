@@ -4,7 +4,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "Kesomannen"
 name = "FastStartup"
-versionNumber = "0.1.0"
+versionNumber = "0.2.0"
 description = "Skip the menus and get right into the action!"
 websiteUrl = "https://github.com/Kesomannen/RepoFastStartup"
 
