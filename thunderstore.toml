@@ -25,4 +25,4 @@ target = "FastStartup.dll"
 communities = ["repo"]
 
 [publish.categories]
-repo = ["Tools"]
+repo = ["tools"]
