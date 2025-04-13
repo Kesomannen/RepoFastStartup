@@ -21,6 +21,10 @@ outdir = "./build"
 source = "./bin/Release/netstandard2.1/FastStartup.dll"
 target = "FastStartup.dll"
 
+[[build.copy]]
+source = "./CHANGELOG.md"
+target = "CHANGELOG.md"
+
 [publish]
 communities = ["repo"]
 
