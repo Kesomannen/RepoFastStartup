@@ -76,21 +76,21 @@ public class Plugin : BaseUnityPlugin {
             "General", 
             "SaveFileName",
             "REPO_FASTSTARTUP_SAVE",
-            $"The name of the save file to use."
+            "The name of the save file to use."
         ).Value;
         
         _overrideLevel = Config.Bind(
             "General", 
             "OverrideLevel",
             false,
-            $"Whether to always start in the same level. Requires the LevelName option to be set."
+            "Whether to always start in the same level. Requires the LevelName option to be set."
         ).Value;
 
         _levelName = Config.Bind(
             "General",
             "LevelName",
-            "",
-            $"The name of the level to start at. The 'Level - ' prefix is optional. Only applicable when OverrideLevel is true."
+            string.Empty,
+            "The name of the level to start at. The 'Level - ' prefix is optional. Only applicable when OverrideLevel is true."
         ).Value;
     }
 
